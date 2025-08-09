@@ -2,11 +2,10 @@ let form = document.querySelector("#form");
 let buttonAñadir = document.querySelector("#buttonAñadir");
 let listaTareas = document.querySelector("#listaTareas");
 let tareas = []
-function eliminar(id) {
-    tareas = tareas.filter(tarea => tarea.id !== id)
-    listaTareas.innerHTML = tareas.map((t) => `<li> ${t.tarea} ${t.categoriaSelect}   <button onclick="eliminar(${t.id})" >Eliminar</button> </li> `)
 
-}
+
+
+
 function añadirTarea() {
 
     form.addEventListener("submit", (e) => {
@@ -18,23 +17,18 @@ function añadirTarea() {
             id: Date.now(),
             tarea, categoriaSelect
         }
-
-
         tareas.push(nuevaTarea)
-        listaTareas.innerHTML = tareas.map((t) => `<li> ${t.tarea} ${t.categoriaSelect}   <button onclick="eliminar(${t.id})" >Eliminar</button> </li> `)
-
-
-
-
-
-
-        // botonBorrar.addEventListener ("click", ()=>{
-        //     listaTareas.
-        // })
-
-
-
+         mostrarTarea()
     })
+}
+function mostrarTarea (){
+     listaTareas.innerHTML = tareas.map((t) => `<li> ${t.tarea} ${t.categoriaSelect}   <button onclick="eliminar(${t.id})" >Eliminar</button> </li> `)
+
+}
+function eliminar(id) {
+    tareas = tareas.filter(tarea => tarea.id !== id)
+    listaTareas.innerHTML = tareas.map((t) => `<li> ${t.tarea} ${t.categoriaSelect}   <button onclick="eliminar(${t.id})" >Eliminar</button> </li> `)
+
 }
 
 añadirTarea();
