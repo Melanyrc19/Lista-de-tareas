@@ -27,8 +27,7 @@ function mostrarTarea (){
 }
 function eliminar(id) {
     tareas = tareas.filter(tarea => tarea.id !== id)
-    listaTareas.innerHTML = tareas.map((t) => `<li> ${t.tarea} ${t.categoriaSelect}   <button onclick="eliminar(${t.id})" >Eliminar</button> </li> `)
-
+    mostrarTarea();
 }
 
 añadirTarea();
