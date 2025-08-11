@@ -1,11 +1,12 @@
 body {
     margin: 0;
     padding: 0;
-    background: url(✨rosa✨.jpg) no-repeat center center fixed;
+    background: url(✨rosa✨.jpg) repeat center center fixed;
     display: flex;
     align-items: center;
     justify-content: center;
     height: 100vh;
+    
 }
 .titulo{
     background-color: #FFF1E6;
@@ -26,7 +27,8 @@ body {
     align-items: center;
     padding-left: 0px;
     width: 20%;
-    height: 70%;
+    min-height: 50%;
+    height: fit-content;
 }
 
 .container-formulario{
