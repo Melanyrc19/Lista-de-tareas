@@ -1,30 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/style.css">
     <title>Document</title>
 </head>
+
 <body>
+    <div class="container-padre">
+        
+        <div class="container-formulario">
+            <div class="titulo">
+                <h2> Mi to do list</h2>
+            </div>
+            <form id="form" class="formulario">
 
-    <form id="form">
-        <input id="tarea" placeholder="Añadir tarea" type="text" >
-        <select id="categoriaSelect" name="" id="">
-            <option value="trabajo">Trabajo</option>
-            <option value="estudio">Estudio</option>
-            <option value="personal">Personal</option>
+                <input id="tarea" placeholder="Añadir tarea" type="text">
+                <select id="categoriaSelect" name="" id="" class="task">
+                    <option value="trabajo">Trabajo</option>
+                    <option value="estudio">Estudio</option>
+                    <option value="personal">Personal</option>
 
-        </select>
-        <button id="buttonAñadir" type="submit">Añadir</button>
+                </select>
+                <button id="buttonAñadir" type="submit">Añadir</button>
 
-    </form>
-    <div >
-        <ul id="listaTareas">
-          
-        </ul>
+            </form>
+            <div>
+                <ul id="listaTareas">
+
+                </ul>
+            </div>
+
+        </div>
+
 
     </div>
-    
+
     <script src="intex.js"></script>
 </body>
+
 </html>
