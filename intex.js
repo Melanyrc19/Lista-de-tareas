@@ -22,7 +22,7 @@ function añadirTarea() {
     })
 }
 function mostrarTarea (){
-     listaTareas.innerHTML = tareas.map((t) => `<li> ${t.tarea} ${t.categoriaSelect}   <button onclick="eliminar(${t.id})" >Eliminar</button> </li> `)
+     listaTareas.innerHTML = tareas.map((t) => `<li> ${t.tarea} ${t.categoriaSelect}   <button onclick="eliminar(${t.id})" >Eliminar</button> </li> `).join("")
 
 }
 function eliminar(id) {
