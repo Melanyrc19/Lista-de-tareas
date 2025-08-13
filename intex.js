@@ -4,32 +4,40 @@ let listaTareas = document.querySelector("#listaTareas");
 let tareas = []
 
 
-
+document.addEventListener("DOMContentLoaded", function(){
+    obtenerTareas();
+    mostrarTarea();
+})
 
 function añadirTarea() {
 
     form.addEventListener("submit", (e) => {
         e.preventDefault();
+        
+        
         let categoriaSelect = document.querySelector("#categoriaSelect").value
         let tarea = document.querySelector("#tarea").value
-
+        
         const nuevaTarea = {
             id: Date.now(),
             tarea, categoriaSelect
         }
-        tareas.push(nuevaTarea)
-      
+        tareas.push(nuevaTarea);
+        guardarTareas();
          mostrarTarea()
     })
+    
 }
-function mostrarTarea (){
-     listaTareas.innerHTML = tareas.map((t) => `<li> ${t.tarea} ${t.categoriaSelect}   <button onclick="eliminar(${t.id})" >Eliminar</button> </li> `).join("")
+
+;function mostrarTarea (){
+     listaTareas.innerHTML = tareas.map((t) => `<li> ${t.tarea} ${t.categoriaSelect}   <button onclick="eliminar(${t.id})" >Eliminar</button> </li> `).join("");
+     guardarTareas();
 
 }
 function eliminar(id) {
     tareas = tareas.filter(tarea => tarea.id !== id)
-    guardarTareas()
     mostrarTarea();
+    guardarTareas();
 }
 
 function guardarTareas (){
@@ -38,8 +46,10 @@ localStorage.setItem('tarea', JSON.stringify(tareas))
 function obtenerTareas (){
 let guardar = localStorage.getItem('tarea')
 if (guardar) {
-    tareas = JSON.parce(guardar)
+    tareas = JSON.parse(guardar)
 }
 
+
 }
+console.log(tareas)
 añadirTarea();
