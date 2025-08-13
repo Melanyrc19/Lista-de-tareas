@@ -18,6 +18,7 @@ function añadirTarea() {
             tarea, categoriaSelect
         }
         tareas.push(nuevaTarea)
+      
          mostrarTarea()
     })
 }
@@ -27,7 +28,18 @@ function mostrarTarea (){
 }
 function eliminar(id) {
     tareas = tareas.filter(tarea => tarea.id !== id)
+    guardarTareas()
     mostrarTarea();
 }
 
+function guardarTareas (){
+localStorage.setItem('tarea', JSON.stringify(tareas))
+}
+function obtenerTareas (){
+let guardar = localStorage.getItem('tarea')
+if (guardar) {
+    tareas = JSON.parce(guardar)
+}
+
+}
 añadirTarea();
